@@ -43,7 +43,7 @@ r.main_registration()
 ```
 
 - `fixed_slide` and `moving_slide` must expose an OpenSlide-like API (`dimensions`, `read_region`, etc.).
-- A folder containing transformation parameters will be created under the provided `reg_id`.
+- A folder containing transformation parameters will be created under the provided `reg_id`. This folder will also contain a `summary.json` that gives an overview of how the registration process went (Initial transform parameters, least squares transform parameters, detected rotation, initial number of landmarks, post-filtration number of landmarks, average residue length, and total compute time taken).
 
 ```python
 # Step 2: Create a warper from the saved transformation parameters

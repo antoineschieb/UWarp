@@ -21,7 +21,7 @@ def get_equivalent_region(r_in, input_slide, output_slide, full_transform):
     transformed_pointC = full_transform @ pointC
     transformed_pointD = full_transform @ pointD
 
-    # now average out the corresponding coordinates to create a rectangular region in case the result of the transform
+    # average out the corresponding coordinates to create a rectangular region in case the result of the transform
     # is not exactly rectangular (this is most likely always the case)
     all_x_coords = [p[0] for p in (transformed_pointA, transformed_pointB, transformed_pointC, transformed_pointD)]
     all_y_coords = [p[1] for p in (transformed_pointA, transformed_pointB, transformed_pointC, transformed_pointD)]
@@ -99,15 +99,12 @@ def get_equivalent_region_non_rect(r_in: Region, input_slide, output_slide, full
 
 
     if rotation=='clockwise':
-        # LEICA -> 3DHISTECH
         r_out = RegionNonRect(transformed_pointB, transformed_pointC, transformed_pointD, transformed_pointA, best_lvl, required_patch_size_x, required_patch_size_y)
 
     elif rotation=='anticlockwise':
-        # 3DHISTECH -> LEICA
         r_out = RegionNonRect(transformed_pointD, transformed_pointA, transformed_pointB, transformed_pointC, best_lvl, required_patch_size_x, required_patch_size_y)
 
     elif rotation=='180':
-        # 3DHISTECH -> ROCHE
         r_out = RegionNonRect(transformed_pointC, transformed_pointD, transformed_pointA, transformed_pointB, best_lvl, required_patch_size_x, required_patch_size_y)
 
     elif rotation=='identity':
