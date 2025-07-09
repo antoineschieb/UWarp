@@ -14,15 +14,6 @@ from scipy.interpolate import LinearNDInterpolator
 from src.region import Region, RegionNonRect
 
 
-
-def get_matrix_from_tp(tp):
-    m = [   [tp[3],tp[2],tp[5]],
-            [tp[1],tp[0],tp[4]],
-            [0,0,1]]
-    m = np.array(m)
-    return m
-
-
 def correct_itk_transform(itk_transform):
     # Proper way to convert an itk-compatible affine transform to an openslide-compatible affine transform
     itk_transform[1,2] = -itk_transform[1,2]
@@ -292,3 +283,12 @@ def find_lowest_matching_level(fixed_slide, moving_slide):
         return 0
     else:
         return fixed_slide.get_best_level_for_downsample(desired_downsample)
+
+
+def get_matrix_from_tp(tp):
+    # Get itk affine matrix from the retrieved transform parameters
+    m = [   [tp[3],tp[2],tp[5]],
+            [tp[1],tp[0],tp[4]],
+            [0,0,1]]
+    m = np.array(m)
+    return m
