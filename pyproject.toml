@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "UWarp"
+version = "3.0"
+description = ""
+authors = ["Antoine Schieb <antoineschieb@ummon.health>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+scikit-learn = "^1.5.2"
+pillow = "^10.4.0"
+tqdm = "^4.66.5"
+openslide-python = "^1.3.1"
+itk-elastix = "^0.21.0"
+opencv-python = "^4.10.0.84"
+ipykernel = "^6.29.5"
+matplotlib = "^3.9.2"
+scikit-image = "^0.24.0"
+python-javabridge = "^4.0.4"
+python-bioformats = "^4.1.0"
+tifffile = "<2024.9.20"
+imagecodecs = "^2024.9.22"
+tifftools = "^1.5.2"
+seaborn = "^0.13.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
